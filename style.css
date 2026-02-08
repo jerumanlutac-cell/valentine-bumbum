@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd6e0, #ffeef3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: white;
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 350px;
+  position: relative;
+}
+
+.cat {
+  width: 200px;
+  margin-bottom: 10px;
+  animation: bounce 2s infinite;
+}
+
+h1 {
+  color: #ff4d6d;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+button {
+  padding: 12px 22px;
+  font-size: 18px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#yesBtn {
+  background: #ff4d6d;
+  color: white;
+}
+
+#noBtn {
+  background: #d3d3d3;
+  color: #333;
+  position: absolute;
+}
+
+/* Bouncing animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
