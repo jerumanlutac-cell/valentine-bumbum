@@ -1,33 +1,30 @@
-$(document).ready(function () {
+$(function () {
 
-  // NO button runs away
+  function showPage(id) {
+    $('.page').removeClass('active');
+    $(id).addClass('active');
+  }
+
+  // No button runs away
   $('#noBtn').on('mouseenter', function () {
-    let container = $('#page1 .card');
-    let maxX = container.width() - $(this).outerWidth();
-    let maxY = container.height() - $(this).outerHeight();
+    const card = $('#page1 .card');
+    const maxX = card.width() - $(this).outerWidth();
+    const maxY = card.height() - $(this).outerHeight();
 
     $(this).css({
-      left: Math.random() * maxX + 'px',
-      top: Math.random() * maxY + 'px'
+      left: Math.random() * maxX,
+      top: Math.random() * maxY
     });
   });
 
-  // Page 1 → Page 2
-  $('#yesBtn').on('click', function () {
-    $('#page1').removeClass('active');
-    $('#page2').addClass('active');
-  });
-
-  // ✅ Page 2 → Page 3 (FIXED WITH EVENT DELEGATION)
-  $(document).on('click', '#finalBtn', function () {
-    $('#page2').removeClass('active');
-    $('#page3').addClass('active');
-  });
+  // Page transitions
+  $(document).on('click', '#yesBtn', () => showPage('#page2'));
+  $(document).on('click', '#finalBtn', () => showPage('#page3'));
 
   // Countdown (Manila Time)
   function updateCountdown() {
     const target = new Date('2026-02-14T18:00:00+08:00').getTime();
-    const now = new Date().getTime();
+    const now = Date.now();
     const diff = target - now;
 
     if (diff <= 0) {
