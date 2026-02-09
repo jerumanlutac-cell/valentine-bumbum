@@ -2,36 +2,47 @@ $(document).ready(function () {
 
   // NO button runs away
   $('#noBtn').on('mouseenter', function () {
-    let container = $('.container');
-
+    let container = $('#page1 .card');
     let maxX = container.width() - $(this).outerWidth();
     let maxY = container.height() - $(this).outerHeight();
 
-    let randomX = Math.random() * maxX;
-    let randomY = Math.random() * maxY;
-
     $(this).css({
-      left: randomX + 'px',
-      top: randomY + 'px'
+      left: Math.random() * maxX + 'px',
+      top: Math.random() * maxY + 'px'
     });
   });
 
-  // YES button action (PLAY SOUND FIRST)
-  $('#yesBtn').click(function () {
-    const purr = document.getElementById('purrSound');
-
-    // restart and play sound
-    purr.pause();
-    purr.currentTime = 0;
-    purr.play();
-
-    // THEN change the content
-    $('.container').html(`
-      <img src="cat.png" class="cat">
-      <h1>YAYYYY BUMBUM 💖🐱</h1>
-      <p>I knew you’d say yes 🥰</p>
-      <p>Happy Valentine’s Day 💐</p>
-    `);
+  // Page 1 → Page 2
+  $('#yesBtn').on('click', function () {
+    $('#page1').removeClass('active');
+    $('#page2').addClass('active');
   });
 
+  // ✅ Page 2 → Page 3 (FIXED WITH EVENT DELEGATION)
+  $(document).on('click', '#finalBtn', function () {
+    $('#page2').removeClass('active');
+    $('#page3').addClass('active');
+  });
+
+  // Countdown (Manila Time)
+  function updateCountdown() {
+    const target = new Date('2026-02-14T18:00:00+08:00').getTime();
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      $('#countdown').text("It's today 💖");
+      return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    $('#countdown').text(`${d}d ${h}h ${m}m ${s}s`);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 });

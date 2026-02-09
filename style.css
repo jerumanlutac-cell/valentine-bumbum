@@ -6,36 +6,81 @@
 }
 
 body {
+  min-height: 100vh;
+  background: #ffe6ec;
+}
+
+/* Page control */
+.page {
+  display: none;
+  width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #ffd6e0, #ffeef3);
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.container {
+.page.active {
+  display: flex;
+}
+
+/* Card */
+.card {
   background: white;
-  padding: 25px;
-  border-radius: 25px;
+  padding: 26px;
+  border-radius: 26px;
+  width: 92%;
+  max-width: 400px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  width: 90%;
-  max-width: 350px;
-  position: relative;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  animation: popIn 0.4s ease;
 }
 
-.cat {
-  width: 200px;
-  margin-bottom: 10px;
-  animation: bounce 2s infinite;
+.scroll {
+  max-height: 85vh;
+  overflow-y: auto;
 }
 
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Hero */
+.hero-gif {
+  width: 180px;
+  margin-bottom: 15px;
+}
+
+/* Text */
 h1 {
   color: #ff4d6d;
-  font-size: 22px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
+h2 {
+  margin: 20px 0 10px;
+  color: #ff4d6d;
+}
+
+.details p {
+  margin: 6px 0;
+  color: #444;
+}
+
+.muted {
+  color: #777;
+  font-size: 14px;
+}
+
+/* Countdown */
+.countdown {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff4d6d;
+  margin-bottom: 16px;
+}
+
+/* Buttons */
 .buttons {
   margin-top: 10px;
 }
@@ -60,12 +105,34 @@ button {
   position: absolute;
 }
 
-/* Bouncing animation */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
+/* Gallery */
+.gallery {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.gallery img {
+  width: 140px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* Map */
+.map-btn {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 10px 16px;
+  background: #ff4d6d;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+/* Dress text */
+.dress-text {
+  margin-top: 10px;
+  color: #444;
 }

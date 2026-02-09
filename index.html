@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Be My Valentine 💖</title>
+  <title>For You 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
@@ -10,23 +10,71 @@
 </head>
 <body>
 
-<!-- AUDIO MUST BE OUTSIDE THE CONTAINER -->
-<audio id="purrSound" preload="auto">
-  <source src="https://assets.mixkit.co/sfx/preview/mixkit-cat-purring-1151.mp3" type="audio/mpeg">
-</audio>
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="card">
+    <img src="cat.gif" class="hero-gif" alt="Cute cat">
 
-<div class="container">
-  <img 
-    src="cat.png"
-    alt="Pixel grey Persian cat on heart pillow"
-    class="cat"
-  >
+    <h1>Will you be my Valentine’s,<br>Bumbum? 💘</h1>
 
-  <h1>Will you be my Valentine’s, Bumbum? 💘</h1>
+    <div class="buttons">
+      <button id="yesBtn">Yes 💕</button>
+      <button id="noBtn">No 💔</button>
+    </div>
+  </div>
+</div>
 
-  <div class="buttons">
-    <button id="yesBtn">Yes 💕</button>
-    <button id="noBtn">No 💔</button>
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="card scroll">
+
+    <h1>Our Valentine Date 💖</h1>
+    <div class="countdown" id="countdown"></div>
+
+    <div class="details">
+      <p>📅 <strong>Date:</strong> February 14, 2026</p>
+      <p>⏰ <strong>Time:</strong> Evening (Manila Time)</p>
+      <p>🏨 <strong>Stay:</strong><br>Havitat Boutique Hotel – Poblacion</p>
+    </div>
+
+    <h2>Where We’ll Stay 🏨</h2>
+    <div class="gallery">
+      <img src="hotel1.png" alt="Hotel exterior">
+      <img src="hotel2.png" alt="Hotel interior">
+      <img src="hotel3.png" alt="Hotel room">
+    </div>
+
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Havitat+Boutique+Hotel+Poblacion"
+      target="_blank"
+      class="map-btn">
+      📍 Open in Google Maps
+    </a>
+
+    <h2>Dress Code 👗</h2>
+    <div class="gallery">
+      <img src="dress1.png" alt="Dress inspiration 1">
+      <img src="dress2.png" alt="Dress inspiration 2">
+      <img src="dress3.jpg" alt="Dress inspiration 3">
+    </div>
+
+    <p class="dress-text">
+      Elegant evening wear<br>
+      <span class="muted">Red / Black / Neutral tones ✨</span>
+    </p>
+
+    <button id="finalBtn" class="final-btn">
+      Click here 💛
+    </button>
+
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <div class="card">
+    <img src="catmemewaveemoji.gif" class="final-gif" alt="See you my love">
+    <h1>See you, my love 💛</h1>
   </div>
 </div>
 
